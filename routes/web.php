@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::resource('questions', 'QuestionsController');
 
 Route::get('/', function () {
     return view('welcome');
