@@ -22,7 +22,7 @@
                                     <strong>{{ $question->votes }}</strong> {{ Str::plural('vote', $question->votes) }}
                                 </div>                            
                                 <div class="status {{ $question->status }}">
-                                    <strong>{{ $question->answers }}</strong> {{ Str::plural('answer', $question->answers) }}
+                                    <strong>{{ $question->answers_count }}</strong> {{ Str::plural('answer', $question->answers_count) }}
                                 </div>                            
                                 <div class="view">
                                     {{ $question->views . " " . Str::plural('view', $question->views) }}
@@ -35,7 +35,7 @@
                                         {{-- @if (Auth::user()->can('update-question', $question)) --}}
                                         @can('update', $question)
                                             <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
-                                        @endcan    
+                                        @endcan
                                         {{-- @endif --}}
                                         {{-- @if (Auth::user()->can('update-question', $question)) --}}
                                         @can('delete', $question)
