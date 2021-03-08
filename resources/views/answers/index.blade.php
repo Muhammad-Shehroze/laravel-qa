@@ -7,7 +7,6 @@
                 </div>
                 <hr>
                 @include ('layouts._message')
-                
                 @foreach ($answers as $answer)
                     <div class="media">
                         <div class="d-fex flex-column vote-controls">
@@ -18,9 +17,14 @@
                             <a title="This answer is not useful" class="vote-down off">
                                 <i class="fas fa-caret-down fa-3x"></i>
                             </a>
-                            <a title="Mark this answer as best answer" class="{{ $answer->status }} mt-2">
+                            <a title="Mark this answer as best answer" 
+                                class="{{ $answer->status }} mt-2"
+                                onclick="event.preventDefault(); document.getElementById('accept-answer-{{ $answer->id }}').submit();">
                                 <i class="fas fa-check fa-2x"></i>                                    
                             </a>
+                            <form id="accept-answer-{{ $answer->id }}" action="{{ route('answers.accept', $answer->id) }}" method="POST" style="display: inline">
+                                @csrf
+                            </form>
                         </div>
                         <div class="media-body">
                             {!! $answer->body_html !!}

@@ -15,7 +15,7 @@
                 </div>
                 <div class="card-body">
                     @include('layouts._message')
-                   @foreach ($questions as $question)
+                @foreach ($questions as $question)
                         <div class="media">
                             <div class="d-flex flex-column counters">
                                 <div class="vote">
@@ -54,11 +54,11 @@
                                     <a href="{{ $question->user->url }}">{{ $question->user->name }}</a> 
                                     <small class="text-muted">{{ $question->created_date }}</small>
                                 </p>
-                                {{ Str::limit($question->body, 250) }}
+                                {{ strip_tags($question->body) }}
                             </div>                        
                         </div>
                         <hr>
-                   @endforeach
+                @endforeach
 
                     <div class="mx-auto">
                         {{ $questions->links() }}

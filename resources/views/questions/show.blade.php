@@ -32,7 +32,7 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            {!! $question->body_html !!}
+                            {{ $question->body }}
                             <div class="float-right">
                                 <span class="text-muted">Answered {{ $question->created_date }}</span>
                                 <div class="media mt-2">

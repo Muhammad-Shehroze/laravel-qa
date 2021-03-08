@@ -22,13 +22,10 @@ class AnswersController extends Controller
         ]);
         $question->answers()->create([
             'body'=> $request->body,
-             'user_id' => Auth::id()
-             ]);
+            'user_id' => Auth::id()
+            ]);
         return back()->with('success', "Answer Submitted Successfully");
     }
-
-   
-
     /**
      * Show the form for editing the specified resource.
      *

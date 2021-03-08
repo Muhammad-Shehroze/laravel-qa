@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('questions.answers', 'AnswersController')->except(['index, show, create']);
 Route::resource('questions', 'QuestionsController')->except('show');
 Route::get('/questions/{slug}', 'QuestionsController@show')->name('questions.show');
+Route::post('/answers/{answer}/accept', 'AcceptAnswerController')->name('answers.accept');
 
 
 Route::get('/', function () {
